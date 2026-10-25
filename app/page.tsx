@@ -10,9 +10,9 @@ const LANGUAGES = [
   { label: "Code-mixed", sample: "instructions ignore karo", dir: "ltr" as const },
 ];
 
-function DrippingShield() {
+function DrippingShield({ className = "w-full max-w-[18rem] drop-shadow-[0_18px_0_rgba(23,23,23,0.12)]" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 220 260" aria-hidden="true" className="h-auto w-full max-w-[18rem] drop-shadow-[0_18px_0_rgba(23,23,23,0.12)]">
+    <svg viewBox="0 0 220 260" aria-hidden="true" className={`h-auto ${className}`}>
       <path d="M110 8 22 42v62c0 58 37 107 88 122 51-15 88-64 88-122V42L110 8Z" fill="#A66BFF" />
       <path d="M110 8 22 42v62c0 26 7.5 50.5 20.6 70.7C40 150 36 126 36 104V52l74-29 74 29v52c0 22-4 46-6.6 70.7C190.5 154.5 198 130 198 104V42L110 8Z" fill="#171717" opacity="0.12" />
       {/* drips */}
@@ -49,31 +49,36 @@ export default function Home() {
   return (
     <>
       <section className="border-b-2 border-line">
-        <Container className="grid items-center gap-10 py-14 sm:py-20 md:grid-cols-[1.4fr_1fr]">
+        <Container className="grid items-center gap-10 pb-12 pt-10 sm:py-20 md:grid-cols-[1.4fr_1fr]">
           <div>
             <Eyebrow>Independent AI security research</Eyebrow>
-            <h1 className="mt-5 font-display text-[3.1rem] leading-[0.88] tracking-tight text-brand sm:text-7xl lg:text-8xl">
+            {/* Phones: "INJECTION" scales to fill the column and a small shield sits beside "shield", replacing the large one below. */}
+            <h1 className="mt-5 font-display text-[min(calc((100vw-2rem)/6),4.5rem)] leading-[0.88] tracking-tight text-brand sm:text-7xl lg:text-8xl">
               INJECTION
-              <span className="block font-sans text-[2.6rem] font-light tracking-normal text-ink sm:text-6xl lg:text-7xl">
+              <span className="relative block font-sans text-[min(calc((100vw-2rem)/7.2),3.75rem)] font-light tracking-normal text-ink sm:text-6xl lg:text-7xl">
                 shield
+                <DrippingShield className="absolute -bottom-[0.45em] right-1 w-[3.25rem] drop-shadow-[0_6px_0_rgba(23,23,23,0.12)] sm:hidden" />
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed sm:text-xl">
+            <p className="mt-6 max-w-xl text-[1.0625rem] leading-relaxed sm:text-xl">
               Do prompt-injection detectors fail when the same attack is written in{" "}
               <strong>Urdu</strong>, <strong>Roman Urdu</strong> or <strong>Urdu-English code-mixed</strong> text?
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap [&>a]:justify-center">
               <PillLink href="/detector/" solid>
                 Try the detector
               </PillLink>
               <PillLink href="/research/">Read the research</PillLink>
             </div>
-            <p className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-line bg-surface px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em]">
-              <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
-              100% in-browser · your text stays on your device
+            <p className="mt-6 flex items-center gap-3 rounded-2xl border-2 border-line bg-surface px-4 py-3 text-[0.6875rem] font-bold uppercase tracking-[0.12em] sm:mt-8 sm:inline-flex sm:gap-2 sm:rounded-full sm:py-1.5 sm:text-xs sm:tracking-[0.16em]">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-success" aria-hidden="true" />
+              <span>
+                100% in-browser<span className="hidden sm:inline"> · </span>
+                <span className="block font-semibold text-muted sm:inline sm:font-bold sm:text-ink">your text stays on your device</span>
+              </span>
             </p>
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div className="hidden justify-center sm:flex md:justify-end">
             <DrippingShield />
           </div>
         </Container>
