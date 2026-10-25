@@ -79,3 +79,4 @@ research/results/errors.json
 research/results/predictions/
 research/results/*.log
 .next-dev.log
+linkedin-screenshots/
