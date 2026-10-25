@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/*
+ * Palette (approved by the author): Lemon #FFF21A, Charcoal #171717, Electric Lavender #A66BFF,
+ * helpers: deep purple #5B21B6, off-white #FFFBE6, red #DC2626, green #15803D, greys #6B6B6B / #D4D4D4.
+ * Default theme is yellow; [data-theme="dark"] switches to charcoal.
+ * Contrast notes: lavender on yellow is ~3:1, so it is used for large shapes/buttons only; small
+ * accent text on yellow uses deep purple (8:1).
+ */
+:root,
+[data-theme="light"] {
+  --bg: #fff21a;
+  --surface: #fffbe6;
+  --ink: #171717;
+  --muted: #6b6b6b;
+  --brand: #171717;
+  --line: #171717;
+  --line-soft: #d4d4d4;
+  --accent: #a66bff;
+  --accent-ink: #5b21b6;
+  --on-accent: #171717;
+  --danger: #dc2626;
+  --success: #15803d;
+  --on-status: #fffbe6;
+  --focus: #171717;
+  --series-1: #171717;
+  --series-2: #6b6b6b;
+  --series-3: #a66bff;
+  --series-4: #5b21b6;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #171717;
+  --surface: #171717;
+  --ink: #fffbe6;
+  --muted: #d4d4d4;
+  --brand: #fff21a;
+  --line: #fff21a;
+  --line-soft: #6b6b6b;
+  --accent: #a66bff;
+  --accent-ink: #a66bff;
+  --on-accent: #171717;
+  --danger: #dc2626;
+  --success: #15803d;
+  --on-status: #fffbe6;
+  --focus: #fff21a;
+  --series-1: #fff21a;
+  --series-2: #6b6b6b;
+  --series-3: #a66bff;
+  --series-4: #fffbe6;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-on-status: var(--on-status);
+  --font-sans: var(--font-inter), var(--font-nastaliq), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-urdu: var(--font-nastaliq), var(--font-inter), serif;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), var(--font-nastaliq), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible, high-contrast keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Nastaliq needs generous line height; applied to anything marked Urdu. */
+[lang="ur"],
+.urdu {
+  font-family: var(--font-nastaliq), var(--font-inter), serif;
+  line-height: 2.2;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Home page cards: hard ink shadow lift on hover/focus (uses existing colour tokens only). */
+.card-lift {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.card-lift:hover,
+.card-lift:focus-within {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 var(--line);
+}
+.arrow-nudge {
+  transition: transform 140ms ease;
+}
+a:hover .arrow-nudge {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

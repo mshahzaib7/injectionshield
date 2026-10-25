@@ -1,0 +1,1264 @@
+{
+ "source": "Independent sentences supplied by the project author (not written by the benchmark's author); collected after training; evaluation only.",
+ "threshold": 0.5,
+ "counts": {
+  "en": {
+   "attack": 25,
+   "benign": 25
+  },
+  "ur": {
+   "attack": 35,
+   "benign": 35
+  },
+  "roman_ur": {
+   "attack": 5,
+   "benign": 5
+  }
+ },
+ "detectors": {
+  "protectai": {
+   "id": "D1",
+   "name": "ProtectAI DeBERTa-v3 (v2)",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.96,
+     "fpr": 0.0,
+     "f1": 0.9796,
+     "caught": 24,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.88,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.9714,
+     "fpr": 1.0,
+     "f1": 0.6538,
+     "caught": 34,
+     "missed": 1,
+     "false_alarms": 35,
+     "ci": {
+      "recall": [
+       0.9143,
+       1.0
+      ],
+      "fpr": [
+       1.0,
+       1.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 1.0,
+     "fpr": 0.2,
+     "f1": 0.9091,
+     "caught": 5,
+     "missed": 0,
+     "false_alarms": 1,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.6
+      ]
+     }
+    }
+   }
+  },
+  "baseline": {
+   "id": "D2",
+   "name": "English-only baseline",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 20,
+     "missed": 5,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.64,
+       0.92
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.0,
+     "fpr": 0.0,
+     "f1": 0.0,
+     "caught": 0,
+     "missed": 35,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.0,
+       0.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 4,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.4,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "shield_lite": {
+   "id": "D3",
+   "name": "InjectionShield-Lite",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 20,
+     "missed": 5,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.64,
+       0.96
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.7143,
+     "fpr": 0.0,
+     "f1": 0.8333,
+     "caught": 25,
+     "missed": 10,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.5429,
+       0.8571
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 4,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.4,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "minilm_lr": {
+   "id": "D4",
+   "name": "Multilingual MiniLM + LR",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.76,
+     "fpr": 0.0,
+     "f1": 0.8636,
+     "caught": 19,
+     "missed": 6,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.6,
+       0.92
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.9714,
+     "fpr": 0.0,
+     "f1": 0.9855,
+     "caught": 34,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.9143,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 1.0,
+     "fpr": 0.0,
+     "f1": 1.0,
+     "caught": 5,
+     "missed": 0,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "shield_lite_v2": {
+   "id": "D3v2",
+   "name": "InjectionShield-Lite v2",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.96,
+     "fpr": 0.0,
+     "f1": 0.9796,
+     "caught": 24,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.88,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.9714,
+     "fpr": 0.0,
+     "f1": 0.9855,
+     "caught": 34,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.9143,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 1.0,
+     "fpr": 0.0,
+     "f1": 1.0,
+     "caught": 5,
+     "missed": 0,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "minilm_lr_v2": {
+   "id": "D4v2",
+   "name": "Multilingual MiniLM + LR v2",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.92,
+     "fpr": 0.0,
+     "f1": 0.9583,
+     "caught": 23,
+     "missed": 2,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.8,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 1.0,
+     "fpr": 0.0,
+     "f1": 1.0,
+     "caught": 35,
+     "missed": 0,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 1.0,
+     "fpr": 0.0,
+     "f1": 1.0,
+     "caught": 5,
+     "missed": 0,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "char_en_only": {
+   "id": "A1",
+   "name": "Ablation: char n-grams, English-only data",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.84,
+     "fpr": 0.0,
+     "f1": 0.913,
+     "caught": 21,
+     "missed": 4,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.68,
+       0.96
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.0,
+     "fpr": 0.0,
+     "f1": 0.0,
+     "caught": 0,
+     "missed": 35,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.0,
+       0.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 4,
+     "missed": 1,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.4,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   }
+  },
+  "minilm_en_only": {
+   "id": "A2",
+   "name": "Ablation: MiniLM, English-only data",
+   "by_lang": {
+    "en": {
+     "n": 50,
+     "recall": 0.8,
+     "fpr": 0.0,
+     "f1": 0.8889,
+     "caught": 20,
+     "missed": 5,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.64,
+       0.92
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "ur": {
+     "n": 70,
+     "recall": 0.9429,
+     "fpr": 0.0,
+     "f1": 0.9706,
+     "caught": 33,
+     "missed": 2,
+     "false_alarms": 0,
+     "ci": {
+      "recall": [
+       0.8571,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    "roman_ur": {
+     "n": 10,
+     "recall": 1.0,
+     "fpr": 0.4,
+     "f1": 0.8333,
+     "caught": 5,
+     "missed": 0,
+     "false_alarms": 2,
+     "ci": {
+      "recall": [
+       1.0,
+       1.0
+      ],
+      "fpr": [
+       0.0,
+       0.8
+      ]
+     }
+    }
+   }
+  }
+ },
+ "stress": {
+  "n": {
+   "roman_ur": 100,
+   "ur": 100
+  },
+  "categories": {
+   "A": "Instruction override",
+   "B": "Hidden prompt extraction",
+   "C": "Fake authority",
+   "D": "Role-play personas",
+   "E": "Special modes",
+   "F": "Indirect / encoded",
+   "G": "Refusal manipulation",
+   "H": "Multi-turn / context",
+   "I": "Privacy questions",
+   "J": "Tools / untrusted input"
+  },
+  "detectors": {
+   "protectai": {
+    "id": "D1",
+    "name": "ProtectAI DeBERTa-v3 (v2)",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.92,
+      "ci": [
+       0.87,
+       0.97
+      ],
+      "by_category": {
+       "A": 1.0,
+       "B": 1.0,
+       "C": 0.9,
+       "D": 0.7,
+       "E": 1.0,
+       "F": 0.9,
+       "G": 0.8,
+       "H": 0.9,
+       "I": 1.0,
+       "J": 1.0
+      }
+     },
+     "ur": {
+      "recall": 0.98,
+      "ci": [
+       0.95,
+       1.0
+      ],
+      "by_category": {
+       "A": 1.0,
+       "B": 1.0,
+       "C": 1.0,
+       "D": 0.9,
+       "E": 1.0,
+       "F": 1.0,
+       "G": 1.0,
+       "H": 1.0,
+       "I": 1.0,
+       "J": 0.9
+      }
+     }
+    }
+   },
+   "baseline": {
+    "id": "D2",
+    "name": "English-only baseline",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.45,
+      "ci": [
+       0.3598,
+       0.55
+      ],
+      "by_category": {
+       "A": 0.8,
+       "B": 0.7,
+       "C": 0.4,
+       "D": 0.2,
+       "E": 0.0,
+       "F": 0.5,
+       "G": 0.3,
+       "H": 0.8,
+       "I": 0.0,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ],
+      "by_category": {
+       "A": 0.0,
+       "B": 0.0,
+       "C": 0.0,
+       "D": 0.0,
+       "E": 0.0,
+       "F": 0.0,
+       "G": 0.0,
+       "H": 0.0,
+       "I": 0.0,
+       "J": 0.0
+      }
+     }
+    }
+   },
+   "shield_lite": {
+    "id": "D3",
+    "name": "InjectionShield-Lite",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.41,
+      "ci": [
+       0.31,
+       0.51
+      ],
+      "by_category": {
+       "A": 0.7,
+       "B": 0.5,
+       "C": 0.4,
+       "D": 0.2,
+       "E": 0.1,
+       "F": 0.4,
+       "G": 0.4,
+       "H": 0.6,
+       "I": 0.0,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.38,
+      "ci": [
+       0.29,
+       0.47
+      ],
+      "by_category": {
+       "A": 0.6,
+       "B": 0.4,
+       "C": 0.3,
+       "D": 0.8,
+       "E": 0.0,
+       "F": 0.3,
+       "G": 0.2,
+       "H": 0.5,
+       "I": 0.0,
+       "J": 0.7
+      }
+     }
+    }
+   },
+   "minilm_lr": {
+    "id": "D4",
+    "name": "Multilingual MiniLM + LR",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.62,
+      "ci": [
+       0.52,
+       0.72
+      ],
+      "by_category": {
+       "A": 0.8,
+       "B": 0.7,
+       "C": 0.4,
+       "D": 0.4,
+       "E": 0.6,
+       "F": 0.5,
+       "G": 0.8,
+       "H": 0.8,
+       "I": 0.4,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.69,
+      "ci": [
+       0.59,
+       0.78
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.7,
+       "C": 0.5,
+       "D": 0.7,
+       "E": 0.6,
+       "F": 0.7,
+       "G": 0.7,
+       "H": 0.8,
+       "I": 0.4,
+       "J": 0.9
+      }
+     }
+    }
+   },
+   "shield_lite_v2": {
+    "id": "D3v2",
+    "name": "InjectionShield-Lite v2",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.79,
+      "ci": [
+       0.71,
+       0.87
+      ],
+      "by_category": {
+       "A": 1.0,
+       "B": 0.6,
+       "C": 0.8,
+       "D": 1.0,
+       "E": 0.8,
+       "F": 0.8,
+       "G": 0.9,
+       "H": 1.0,
+       "I": 0.1,
+       "J": 0.9
+      }
+     },
+     "ur": {
+      "recall": 0.72,
+      "ci": [
+       0.64,
+       0.8
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.4,
+       "C": 0.9,
+       "D": 1.0,
+       "E": 0.8,
+       "F": 0.3,
+       "G": 0.9,
+       "H": 0.7,
+       "I": 0.5,
+       "J": 0.8
+      }
+     }
+    }
+   },
+   "minilm_lr_v2": {
+    "id": "D4v2",
+    "name": "Multilingual MiniLM + LR v2",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.79,
+      "ci": [
+       0.71,
+       0.87
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.8,
+       "C": 0.6,
+       "D": 0.7,
+       "E": 0.9,
+       "F": 0.6,
+       "G": 0.9,
+       "H": 0.9,
+       "I": 0.8,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.73,
+      "ci": [
+       0.65,
+       0.81
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.6,
+       "C": 0.7,
+       "D": 0.8,
+       "E": 0.6,
+       "F": 0.6,
+       "G": 0.8,
+       "H": 0.8,
+       "I": 0.5,
+       "J": 1.0
+      }
+     }
+    }
+   },
+   "char_en_only": {
+    "id": "A1",
+    "name": "Ablation: char n-grams, English-only data",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.35,
+      "ci": [
+       0.27,
+       0.45
+      ],
+      "by_category": {
+       "A": 0.5,
+       "B": 0.4,
+       "C": 0.4,
+       "D": 0.3,
+       "E": 0.0,
+       "F": 0.3,
+       "G": 0.2,
+       "H": 0.6,
+       "I": 0.0,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ],
+      "by_category": {
+       "A": 0.0,
+       "B": 0.0,
+       "C": 0.0,
+       "D": 0.0,
+       "E": 0.0,
+       "F": 0.0,
+       "G": 0.0,
+       "H": 0.0,
+       "I": 0.0,
+       "J": 0.0
+      }
+     }
+    }
+   },
+   "minilm_en_only": {
+    "id": "A2",
+    "name": "Ablation: MiniLM, English-only data",
+    "by_lang": {
+     "roman_ur": {
+      "recall": 0.67,
+      "ci": [
+       0.58,
+       0.76
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.8,
+       "C": 0.4,
+       "D": 0.5,
+       "E": 0.6,
+       "F": 0.4,
+       "G": 0.8,
+       "H": 1.0,
+       "I": 0.5,
+       "J": 0.8
+      }
+     },
+     "ur": {
+      "recall": 0.67,
+      "ci": [
+       0.57,
+       0.76
+      ],
+      "by_category": {
+       "A": 0.9,
+       "B": 0.6,
+       "C": 0.4,
+       "D": 0.8,
+       "E": 0.8,
+       "F": 0.6,
+       "G": 0.8,
+       "H": 0.8,
+       "I": 0.2,
+       "J": 0.8
+      }
+     }
+    }
+   }
+  }
+ },
+ "hardneg": {
+  "n": {
+   "en": 150,
+   "ur": 150
+  },
+  "detectors": {
+   "protectai": {
+    "id": "D1",
+    "name": "ProtectAI DeBERTa-v3 (v2)",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0667,
+      "flagged": 10,
+      "ci": [
+       0.0333,
+       0.1133
+      ]
+     },
+     "ur": {
+      "fpr": 0.92,
+      "flagged": 138,
+      "ci": [
+       0.8733,
+       0.96
+      ]
+     }
+    }
+   },
+   "baseline": {
+    "id": "D2",
+    "name": "English-only baseline",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0533,
+      "flagged": 8,
+      "ci": [
+       0.02,
+       0.0933
+      ]
+     },
+     "ur": {
+      "fpr": 0.0133,
+      "flagged": 2,
+      "ci": [
+       0.0,
+       0.0333
+      ]
+     }
+    }
+   },
+   "shield_lite": {
+    "id": "D3",
+    "name": "InjectionShield-Lite",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0733,
+      "flagged": 11,
+      "ci": [
+       0.0333,
+       0.1135
+      ]
+     },
+     "ur": {
+      "fpr": 0.04,
+      "flagged": 6,
+      "ci": [
+       0.0133,
+       0.0733
+      ]
+     }
+    }
+   },
+   "minilm_lr": {
+    "id": "D4",
+    "name": "Multilingual MiniLM + LR",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0667,
+      "flagged": 10,
+      "ci": [
+       0.0333,
+       0.1067
+      ]
+     },
+     "ur": {
+      "fpr": 0.1133,
+      "flagged": 17,
+      "ci": [
+       0.0667,
+       0.1667
+      ]
+     }
+    }
+   },
+   "shield_lite_v2": {
+    "id": "D3v2",
+    "name": "InjectionShield-Lite v2",
+    "by_lang": {
+     "en": {
+      "fpr": 0.04,
+      "flagged": 6,
+      "ci": [
+       0.0133,
+       0.0733
+      ]
+     },
+     "ur": {
+      "fpr": 0.0733,
+      "flagged": 11,
+      "ci": [
+       0.0333,
+       0.12
+      ]
+     }
+    }
+   },
+   "minilm_lr_v2": {
+    "id": "D4v2",
+    "name": "Multilingual MiniLM + LR v2",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0667,
+      "flagged": 10,
+      "ci": [
+       0.0333,
+       0.1133
+      ]
+     },
+     "ur": {
+      "fpr": 0.1267,
+      "flagged": 19,
+      "ci": [
+       0.0733,
+       0.18
+      ]
+     }
+    }
+   },
+   "char_en_only": {
+    "id": "A1",
+    "name": "Ablation: char n-grams, English-only data",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0867,
+      "flagged": 13,
+      "ci": [
+       0.0467,
+       0.1333
+      ]
+     },
+     "ur": {
+      "fpr": 0.0067,
+      "flagged": 1,
+      "ci": [
+       0.0,
+       0.02
+      ]
+     }
+    }
+   },
+   "minilm_en_only": {
+    "id": "A2",
+    "name": "Ablation: MiniLM, English-only data",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0933,
+      "flagged": 14,
+      "ci": [
+       0.0533,
+       0.14
+      ]
+     },
+     "ur": {
+      "fpr": 0.14,
+      "flagged": 21,
+      "ci": [
+       0.0867,
+       0.2
+      ]
+     }
+    }
+   }
+  }
+ },
+ "hardneg_dev": {
+  "n": {
+   "en": 150,
+   "ur": 150
+  },
+  "detectors": {
+   "protectai": {
+    "id": "D1",
+    "name": "ProtectAI DeBERTa-v3 (v2)",
+    "by_lang": {
+     "en": {
+      "fpr": 0.08,
+      "flagged": 12,
+      "ci": [
+       0.04,
+       0.1267
+      ]
+     },
+     "ur": {
+      "fpr": 0.9333,
+      "flagged": 140,
+      "ci": [
+       0.8933,
+       0.9667
+      ]
+     }
+    }
+   },
+   "baseline": {
+    "id": "D2",
+    "name": "English-only baseline",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0333,
+      "flagged": 5,
+      "ci": [
+       0.0067,
+       0.0667
+      ]
+     },
+     "ur": {
+      "fpr": 0.0,
+      "flagged": 0,
+      "ci": [
+       0.0,
+       0.0
+      ]
+     }
+    }
+   },
+   "shield_lite": {
+    "id": "D3",
+    "name": "InjectionShield-Lite",
+    "by_lang": {
+     "en": {
+      "fpr": 0.08,
+      "flagged": 12,
+      "ci": [
+       0.04,
+       0.1267
+      ]
+     },
+     "ur": {
+      "fpr": 0.0467,
+      "flagged": 7,
+      "ci": [
+       0.0133,
+       0.08
+      ]
+     }
+    }
+   },
+   "minilm_lr": {
+    "id": "D4",
+    "name": "Multilingual MiniLM + LR",
+    "by_lang": {
+     "en": {
+      "fpr": 0.1,
+      "flagged": 15,
+      "ci": [
+       0.0533,
+       0.1468
+      ]
+     },
+     "ur": {
+      "fpr": 0.1,
+      "flagged": 15,
+      "ci": [
+       0.0533,
+       0.1533
+      ]
+     }
+    }
+   },
+   "shield_lite_v2": {
+    "id": "D3v2",
+    "name": "InjectionShield-Lite v2",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0333,
+      "flagged": 5,
+      "ci": [
+       0.0067,
+       0.0667
+      ]
+     },
+     "ur": {
+      "fpr": 0.04,
+      "flagged": 6,
+      "ci": [
+       0.0133,
+       0.0733
+      ]
+     }
+    }
+   },
+   "minilm_lr_v2": {
+    "id": "D4v2",
+    "name": "Multilingual MiniLM + LR v2",
+    "by_lang": {
+     "en": {
+      "fpr": 0.0933,
+      "flagged": 14,
+      "ci": [
+       0.0467,
+       0.14
+      ]
+     },
+     "ur": {
+      "fpr": 0.1133,
+      "flagged": 17,
+      "ci": [
+       0.0667,
+       0.1667
+      ]
+     }
+    }
+   },
+   "char_en_only": {
+    "id": "A1",
+    "name": "Ablation: char n-grams, English-only data",
+    "by_lang": {
+     "en": {
+      "fpr": 0.08,
+      "flagged": 12,
+      "ci": [
+       0.04,
+       0.1267
+      ]
+     },
+     "ur": {
+      "fpr": 0.0133,
+      "flagged": 2,
+      "ci": [
+       0.0,
+       0.0333
+      ]
+     }
+    }
+   },
+   "minilm_en_only": {
+    "id": "A2",
+    "name": "Ablation: MiniLM, English-only data",
+    "by_lang": {
+     "en": {
+      "fpr": 0.1133,
+      "flagged": 17,
+      "ci": [
+       0.0667,
+       0.1667
+      ]
+     },
+     "ur": {
+      "fpr": 0.1133,
+      "flagged": 17,
+      "ci": [
+       0.0665,
+       0.1667
+      ]
+     }
+    }
+   }
+  }
+ }
+}

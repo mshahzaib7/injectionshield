@@ -1,0 +1,6 @@
+research/.venv
+research/.hf_cache
+research/cache
+research/data
+research/results/*.parquet
+**/__pycache__

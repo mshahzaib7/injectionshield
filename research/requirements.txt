@@ -1,0 +1,21 @@
+# InjectionShield research pipeline — pinned, tested on Python 3.14.6 (Windows, CPU)
+# Install CPU PyTorch first:
+#   pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+# then: pip install -r requirements.txt
+torch==2.14.1
+transformers==5.20.2
+datasets==5.1.0
+huggingface-hub==2.3.0
+tokenizers==0.23.3
+sentencepiece==0.2.2
+sacremoses==0.2.0
+sentence-transformers==6.2.0
+scikit-learn==1.9.1
+scipy==1.18.1
+numpy==2.5.4
+pandas==3.1.0
+pyarrow==26.0.0
+langdetect==1.0.9
+RapidFuzz==3.14.6
+tqdm==4.70.1
+pytest==9.1.1

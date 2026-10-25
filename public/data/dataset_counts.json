@@ -1,0 +1,72 @@
+{
+  "total_rows": 5425,
+  "unique_groups": 2214,
+  "counts": {
+    "test": {
+      "code_mixed": {
+        "benign": 100,
+        "attack": 100
+      },
+      "en": {
+        "benign": 167,
+        "attack": 166
+      },
+      "roman_ur": {
+        "benign": 100,
+        "attack": 100
+      },
+      "ur": {
+        "benign": 167,
+        "attack": 164
+      }
+    },
+    "train": {
+      "code_mixed": {
+        "benign": 150,
+        "attack": 150
+      },
+      "en": {
+        "benign": 774,
+        "attack": 775
+      },
+      "roman_ur": {
+        "benign": 150,
+        "attack": 150
+      },
+      "ur": {
+        "benign": 773,
+        "attack": 775
+      }
+    },
+    "val": {
+      "en": {
+        "benign": 166,
+        "attack": 166
+      },
+      "ur": {
+        "benign": 166,
+        "attack": 166
+      }
+    }
+  },
+  "by_source": {
+    "Lakera/gandalf_ignore_instructions": 964,
+    "OpenAssistant/oasst1": 912,
+    "deepset/prompt-injections": 338
+  },
+  "verified_rows": 60,
+  "qc": {
+    "flagged": 4,
+    "dropped_hard_failures": 3,
+    "by_reason": {
+      "repetition_loop": 2,
+      "suspiciously_short": 2
+    }
+  },
+  "review": {
+    "reviewed": 60,
+    "ok": 43,
+    "fixed": 17,
+    "dropped": 0
+  }
+}

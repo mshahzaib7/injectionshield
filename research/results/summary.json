@@ -1,0 +1,146 @@
+{
+ "generated_at": "2026-10-25T09:48:29+00:00",
+ "status": "complete",
+ "unavailable_detectors": [],
+ "threshold": 0.5,
+ "cards": [
+  {
+   "label": "ProtectAI DeBERTa-v3 (v2): attacks caught",
+   "value": "89.8% → 61.0%",
+   "detail": "English → Roman Urdu"
+  },
+  {
+   "label": "ProtectAI DeBERTa-v3 (v2): false alarms",
+   "value": "0.6% → 88.6%",
+   "detail": "harmless English → harmless Urdu (script)"
+  },
+  {
+   "label": "InjectionShield-Lite v2: new attack styles",
+   "value": "41.0% → 79.0%",
+   "detail": "Roman Urdu recall, v1 → v2 (v2 trained on similar styles; optimistic)"
+  }
+ ],
+ "findings": [
+  {
+   "rq": "RQ1",
+   "detector": "protectai",
+   "title": "D1: detection rate by language",
+   "statement": "ProtectAI DeBERTa-v3 (v2) detected 89.8% (95% CI 85.5–94.0%) of English attacks but 61.0% (95% CI 52.0–70.0%) of Roman Urdu attacks. The confidence intervals do not overlap. Paired test on the same prompts: McNemar p < 0.001.",
+   "numbers": {
+    "recall_en": 0.8976,
+    "recall_worst": 0.61,
+    "worst_lang": "roman_ur"
+   }
+  },
+  {
+   "rq": "RQ1",
+   "detector": "baseline",
+   "title": "D2: detection rate by language",
+   "statement": "English-only baseline detected 92.8% (95% CI 89.2–96.4%) of English attacks but 0.0% (95% CI 0.0–0.0%) of Urdu (script) attacks. The confidence intervals do not overlap. Paired test on the same prompts: McNemar p < 0.001.",
+   "numbers": {
+    "recall_en": 0.9277,
+    "recall_worst": 0.0,
+    "worst_lang": "ur"
+   }
+  },
+  {
+   "rq": "RQ1",
+   "detector": "protectai",
+   "title": "D1: language-switch bypass",
+   "statement": "Of the attacks caught in English by ProtectAI DeBERTa-v3 (v2), 36.3% (95% CI 26.1–46.2%) were missed when the same attack was written in Roman Urdu (33 of 91 attacks).",
+   "numbers": {
+    "switch_bypass_rate": 0.3626,
+    "lang": "roman_ur"
+   }
+  },
+  {
+   "rq": "RQ1",
+   "detector": "baseline",
+   "title": "D2: language-switch bypass",
+   "statement": "Of the attacks caught in English by English-only baseline, 100.0% (95% CI 100.0–100.0%) were missed when the same attack was written in Urdu (script) (152 of 152 attacks).",
+   "numbers": {
+    "switch_bypass_rate": 1.0,
+    "lang": "ur"
+   }
+  },
+  {
+   "rq": "RQ2",
+   "detector": "protectai",
+   "title": "D1: false alarms on harmless text",
+   "statement": "ProtectAI DeBERTa-v3 (v2) wrongly flagged 0.6% of harmless English prompts and 88.6% (95% CI 83.2–93.4%) of harmless Urdu (script) prompts (highest false-positive rate across languages).",
+   "numbers": {
+    "fpr_en": 0.006,
+    "fpr_worst": 0.8862,
+    "worst_lang": "ur"
+   }
+  },
+  {
+   "rq": "RQ2",
+   "detector": "baseline",
+   "title": "D2: false alarms on harmless text",
+   "statement": "English-only baseline wrongly flagged 0.6% of harmless English prompts and 5.0% (95% CI 1.0–9.0%) of harmless Roman Urdu prompts (highest false-positive rate across languages).",
+   "numbers": {
+    "fpr_en": 0.006,
+    "fpr_worst": 0.05,
+    "worst_lang": "roman_ur"
+   }
+  },
+  {
+   "rq": "RQ2",
+   "detector": "protectai",
+   "title": "D1: blanket flagging of Urdu (script)",
+   "statement": "ProtectAI DeBERTa-v3 (v2)'s 95.7% recall on Urdu (script) is not a sign of robustness: it also flagged 88.6% of harmless Urdu (script) prompts (ROC-AUC 0.70), i.e. it flags most text in this language regardless of content.",
+   "numbers": {
+    "recall": 0.9573,
+    "fpr": 0.8862,
+    "lang": "ur"
+   }
+  },
+  {
+   "rq": "RQ3",
+   "detector": "minilm_lr",
+   "title": "Multilingual embeddings: what transfers without Urdu data",
+   "statement": "Multilingual MiniLM embeddings trained on English only (A2): Urdu (script) recall 94.5% / FPR 7.8%; Roman Urdu recall 77.0% / FPR 58.0%. Trained on multilingual data (D4): Urdu (script) recall 92.1% / FPR 2.4%; Roman Urdu recall 70.0% / FPR 20.0%. Roman Urdu was the lowest-F1 language for 6 of 8 detectors (D1, D3, D4, D3v2, D4v2, A2).",
+   "numbers": {}
+  },
+  {
+   "rq": "RQ3",
+   "detector": "shield_lite",
+   "title": "D3: InjectionShield-Lite vs the English-only baseline",
+   "statement": "Recall, English-only baseline → InjectionShield-Lite: Urdu (script) 0.0% → 93.3%; Roman Urdu 34.0% → 80.0%; Urdu-English code-mixed 90.0% → 90.0% (CIs overlap). InjectionShield-Lite's lowest recall was 80.0% (Roman Urdu) with false-positive rates between 0.0% and 2.0%. Caveat: its Roman Urdu / code-mixed training and test rows were written by the same (LLM) author, which may flatter these numbers.",
+   "numbers": {}
+  },
+  {
+   "rq": "RQ3",
+   "detector": "char_en_only",
+   "title": "Ablation: features vs training data",
+   "statement": "Recall for word n-grams (English data) / char n-grams (English data) / char n-grams (multilingual data) — Urdu (script): 0.0% / 0.0% / 93.3%; Roman Urdu: 34.0% / 29.0% / 80.0%; Urdu-English code-mixed: 90.0% / 89.0% / 90.0%. The first step shows what character features alone contribute; the second shows what multilingual training data adds.",
+   "numbers": {}
+  },
+  {
+   "rq": "RQ3",
+   "detector": "shield_lite",
+   "title": "Generalisation to unseen attack styles",
+   "statement": "On 100 Roman Urdu and 100 Urdu-script attacks phrased in new styles (fake authority, developer modes, role-play; supplied after training, attack-only), recall Roman Urdu / Urdu was: D1 92.0% / 98.0%; D2 45.0% / 0.0%; D3 41.0% / 38.0%; D4 62.0% / 69.0%. InjectionShield-Lite's benchmark Roman Urdu recall (80.0%) does not carry over to these unseen attack styles: it mostly learned the attack patterns present in its training data. The multilingual-embedding models (D4, A2) generalised better. ProtectAI's high Urdu recall should be read together with its false-positive rate on harmless Urdu.",
+   "numbers": {}
+  },
+  {
+   "rq": "RQ3",
+   "detector": "shield_lite_v2",
+   "title": "D3v2: retraining for new attack styles",
+   "statement": "InjectionShield-Lite v2 adds training data covering these attack styles and look-alike harmless prompts. Stress-set recall (Roman Urdu / Urdu) rose from 41.0% / 38.0% to 79.0% / 72.0%. This is optimistic, because the extra data was written after the stress-set categories were known (no sentence was allowed to be similar to a stress-set item). On 150 English and 150 Urdu fresh real-user harmless prompts that mention words like system, developer, instructions or access, the false-positive rate (English / Urdu) was 7.3% / 4.0% for v1 and 4.0% / 7.3% for v2. Benchmark Roman Urdu recall: 85.0% (FPR 1.0%).",
+   "numbers": {}
+  },
+  {
+   "rq": "RQ2",
+   "detector": "protectai",
+   "title": "D1: false alarms confirmed on independently written Urdu",
+   "statement": "On 35 harmless Urdu-script sentences written independently of the benchmark (supplied after training), ProtectAI DeBERTa-v3 (v2) flagged 35 (100.0%) as attacks.",
+   "numbers": {
+    "fpr": 1.0,
+    "n": 35
+   }
+  }
+ ],
+ "note": "All statements are generated automatically from results/metrics.json. Test-set sizes are small (about 330 prompts in English/Urdu, 200 in Roman Urdu/code-mixed), so confidence intervals are wide."
+}
