@@ -23,7 +23,6 @@ export default function AboutPage() {
       <Eyebrow>About</Eyebrow>
       <div className="mt-4 max-w-3xl">
         <H1>{SITE.author}</H1>
-        <p className="mt-4 text-lg leading-relaxed">BS Computer Science (AI specialization).</p>
       </div>
 
       <section className="mt-12 max-w-3xl" aria-labelledby="motivation">

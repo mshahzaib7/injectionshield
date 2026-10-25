@@ -155,7 +155,7 @@ def ci(c) -> str:
 
 def pick_cards(cards: dict, primary: str) -> list:
     """Home-page cards: the main detector's recall drop and false-alarm rise, then our fix."""
-    order = [f"recall:{primary}", f"fpr:{primary}", "d3v2", "d3gen", "d3", f"switch:{primary}", "recall:baseline", "fpr:baseline"]
+    order = [f"recall:{primary}", f"fpr:{primary}", "v2bench", "d3v2", "d3gen", "d3", f"switch:{primary}", "recall:baseline", "fpr:baseline"]
     return [cards[k] for k in order if k in cards][:3]
 
 
@@ -336,6 +336,10 @@ def build_summary(metrics: dict, ind: dict | None = None) -> dict:
                               "allowed to be similar to a stress-set item)." + fp_txt
                               + (f" Benchmark Roman Urdu recall: {pct(v2b['recall'])} (FPR {pct(v2b['fpr'])})." if v2b else "")),
                 "numbers": {}})
+            if v2b and m("baseline", "roman_ur"):
+                cards["v2bench"] = {"label": "InjectionShield-Lite v2: Roman Urdu attacks caught",
+                                    "value": f"{pct(m('baseline', 'roman_ur')['recall'])} → {pct(v2b['recall'])}",
+                                    "detail": f"English-only baseline → InjectionShield-Lite v2, with {pct(v2b['fpr'])} false alarms; runs in the browser"}
             cards["d3v2"] = {"label": "InjectionShield-Lite v2: new attack styles",
                              "value": f"{pct(d3_new)} → {pct(rec('shield_lite_v2', 'roman_ur'))}",
                              "detail": "Roman Urdu recall, v1 → v2 (v2 trained on similar styles; optimistic)"}

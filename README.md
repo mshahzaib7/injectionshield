@@ -16,7 +16,7 @@ InjectionShield is a small research project and a live, in-browser tool. It buil
 |---|---|---|
 | ProtectAI DeBERTa-v3 (v2): attacks caught | **89.8% → 61.0%** | English → Roman Urdu |
 | ProtectAI DeBERTa-v3 (v2): false alarms | **0.6% → 88.6%** | harmless English → harmless Urdu (script) |
-| InjectionShield-Lite v2: new attack styles | **41.0% → 79.0%** | Roman Urdu recall, v1 → v2 (v2 trained on similar styles; optimistic) |
+| InjectionShield-Lite v2: Roman Urdu attacks caught | **34.0% → 85.0%** | English-only baseline → InjectionShield-Lite v2, with 1.0% false alarms; runs in the browser |
 
 - **RQ1 · D1: detection rate by language.** ProtectAI DeBERTa-v3 (v2) detected 89.8% (95% CI 85.5–94.0%) of English attacks but 61.0% (95% CI 52.0–70.0%) of Roman Urdu attacks. The confidence intervals do not overlap. Paired test on the same prompts: McNemar p < 0.001.
 - **RQ1 · D2: detection rate by language.** English-only baseline detected 92.8% (95% CI 89.2–96.4%) of English attacks but 0.0% (95% CI 0.0–0.0%) of Urdu (script) attacks. The confidence intervals do not overlap. Paired test on the same prompts: McNemar p < 0.001.

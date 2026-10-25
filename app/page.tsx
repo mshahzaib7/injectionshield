@@ -153,7 +153,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">{summary.note}</p>
+              <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
+                All figures are computed directly from the evaluation outputs, with 95% bootstrap confidence intervals.
+              </p>
             </>
           ) : (
             <Pending what="Headline findings" />
