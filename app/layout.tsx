@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SITE } from "@/lib/site";
@@ -55,6 +56,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <Footer />
+        {/* Anonymous, cookie-free page-view counts (Vercel Web Analytics). Never receives text typed into the detector. */}
+        <Analytics />
       </body>
     </html>
   );

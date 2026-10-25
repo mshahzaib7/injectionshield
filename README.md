@@ -109,7 +109,7 @@ qa/                  Browser smoke test and accessibility audit (Playwright + ax
 
 ## Ethics
 
-This is defensive research. All attacks come from public datasets of well-known patterns. No new attack techniques were developed, and no real system was attacked. The demo runs in the browser and collects nothing.
+This is defensive research. All attacks come from public datasets of well-known patterns. No new attack techniques were developed, and no real system was attacked. The demo analyses text entirely in the browser: what you type is never sent or stored. The site counts anonymous, cookie-free page views with Vercel Web Analytics.
 
 ## Citation
 

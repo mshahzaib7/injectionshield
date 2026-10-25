@@ -156,3 +156,11 @@ Each entry: **what** was chosen, **why**, and **alternatives considered**.
 ## D-501 · Automated accessibility and robustness checks
 - **What:** `qa/a11y.py` runs axe-core (WCAG 2.1 A/AA) on every page in both themes, including a detector result state. A negative-control page confirms axe actually reports violations. Colour pairs axe cannot measure (SVG chart text) are checked by hand in TESTING.md. Robustness is tested by building with missing, malformed and partially missing `public/data` files.
 - **Why:** "Zero console errors, WCAG AA, never a blank page" are requirements, so they need evidence, not just intent. The checks found three real issues (navbar overflow, chart-legend contrast, a build break on partial JSON), all fixed.
+
+---
+## Phase 6: Deployment
+
+## D-601 · Vercel Web Analytics, and precise privacy wording
+- **What:** `@vercel/analytics` (v1) adds anonymous, cookie-free page-view counts. The privacy line changed from "no data collected" to "your text stays on your device", and the footer and README mention the page-view stats.
+- **Why:** The author wants visitor numbers. Vercel's analytics needs no cookies or consent banner and never sees the text typed into the detector (verified: no request contains the analysed text). The old wording would have become untrue, so it was made precise rather than left as is.
+- **Install note:** `.npmrc` sets `legacy-peer-deps=true`. The analytics package declares *optional* Svelte/Vue peers whose `vite` range clashes with vitest's. The project uses none of them, and Vercel's install needs the same setting.

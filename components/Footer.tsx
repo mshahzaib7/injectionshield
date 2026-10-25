@@ -29,6 +29,7 @@ export function Footer() {
             </Link>
           </li>
           <li className="text-muted">Research prototype · not a security guarantee</li>
+          <li className="text-muted">Anonymous page-view stats; your text never leaves your browser</li>
         </ul>
       </div>
     </footer>

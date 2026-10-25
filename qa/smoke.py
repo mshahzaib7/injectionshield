@@ -30,8 +30,13 @@ def check(cond: bool, msg: str) -> None:
 
 
 def watch(page, sink: list[str]) -> None:
-    page.on("console", lambda m: sink.append(f"console.{m.type}: {m.text}") if m.type in ("error", "warning") else None)
+    # Failed requests are reported by URL (below), so the browser's generic "Failed to load resource" console line
+    # is skipped here. /_vercel/insights/* (Vercel Web Analytics) only exists on Vercel, never on a local server.
+    page.on("console", lambda m: sink.append(f"console.{m.type}: {m.text}")
+            if m.type in ("error", "warning") and not m.text.startswith("Failed to load resource") else None)
     page.on("pageerror", lambda e: sink.append(f"pageerror: {e}"))
+    page.on("response", lambda r: sink.append(f"HTTP {r.status}: {r.url}")
+            if r.status >= 400 and "/_vercel/insights/" not in r.url and "does-not-exist" not in r.url else None)
 
 
 def main() -> int:
@@ -55,7 +60,6 @@ def main() -> int:
                     page.screenshot(path=str(SHOTS / f"{route.strip('/') or 'home'}_{width}.png"), full_page=True)
             resp = page.goto(BASE + "/does-not-exist/", wait_until="networkidle")
             report["routes"][f"404@{width}"] = {"status": resp.status if resp else 0}
-            logs = [l for l in logs if "404" not in l and "Failed to load resource" not in l]
             check(not logs, f"console/page errors at {width}px: {logs}")
             ctx.close()
 

@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             <p className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-line bg-surface px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em]">
               <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
-              100% in-browser · no data collected
+              100% in-browser · your text stays on your device
             </p>
           </div>
           <div className="flex justify-center md:justify-end">

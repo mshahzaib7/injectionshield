@@ -6,7 +6,7 @@ import { Container, Eyebrow, H1 } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Detector",
   description:
-    "Check a prompt for injection attempts in English, Urdu, Roman Urdu or code-mixed text. Runs entirely in your browser; nothing is sent anywhere.",
+    "Check a prompt for injection attempts in English, Urdu, Roman Urdu or code-mixed text. Runs entirely in your browser; your text is never sent anywhere.",
 };
 
 export default function DetectorPage() {
