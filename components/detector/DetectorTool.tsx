@@ -136,7 +136,7 @@ export function DetectorTool() {
         />
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-sm">
           <p id="prompt-help" className="text-muted">
-            Ctrl/⌘ + Enter to analyze. Your text never leaves this device.
+            Ctrl/⌘ + Enter to analyze. No data collected.
           </p>
           <p id="prompt-count" className={chars >= MAX_INPUT_CHARS ? "font-bold text-danger" : "text-muted"} aria-live="polite">
             {chars.toLocaleString()} / {MAX_INPUT_CHARS.toLocaleString()}
