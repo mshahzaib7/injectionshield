@@ -1,7 +1,7 @@
 """Build the v2 augmentation data (new attack styles + hard negatives) and a held-out hard-negative test set.
 
 Training additions (never evaluated on):
-  - Claude-assisted drafts in data/augment_v2/drafts/{en,roman_ur,ur,code_mixed}.txt (A = attack, B = benign hard negative)
+  - LLM-assisted drafts in data/augment_v2/drafts/{en,roman_ur,ur,code_mixed}.txt (A = attack, B = benign hard negative)
   - jackhhao/jailbreak-classification (Apache-2.0): short jailbreaks (attack) and role-play prompts (benign), English,
     plus their NLLB Urdu translations. (Excluded from the *test* data in Phase 1 because ProtectAI trained on it;
     using it for *training* our own model is fine.)
@@ -54,7 +54,7 @@ def drafts() -> pd.DataFrame:
             if not line.strip() or line.startswith("#"):
                 continue
             tag, _, text = line.partition("|")
-            rows.append({"lang": lang, "label": 1 if tag.strip() == "A" else 0, "text": text.strip(), "source": "claude_v2"})
+            rows.append({"lang": lang, "label": 1 if tag.strip() == "A" else 0, "text": text.strip(), "source": "llm_v2"})
     df = pd.DataFrame(rows)
     stats["drafts"] = df.groupby(["lang", "label"]).size().to_dict()
     return df
@@ -130,15 +130,15 @@ def main() -> None:
                     if l.strip() and not l.startswith("#")]
     protected = bench[bench.split == "test"].text.tolist() + ind_lines + stress_lines
 
-    claude = drafts()
+    llm_rows = drafts()
     jack = add_urdu(jackhhao(), "jk")
-    train_pool = drop_similar(pd.concat([claude, jack], ignore_index=True), protected, "train_candidates")
+    train_pool = drop_similar(pd.concat([llm_rows, jack], ignore_index=True), protected, "train_candidates")
     train_pool = train_pool.drop_duplicates(subset=["lang", "text"])
 
-    # Hold out 20% of the Claude-assisted rows (stratified) to tune C; jackhhao rows are train-only.
-    cl = train_pool[train_pool.source == "claude_v2"]
+    # Hold out 20% of the LLM-assisted rows (stratified) to tune C; jackhhao rows are train-only.
+    cl = train_pool[train_pool.source == "llm_v2"]
     tr_cl, va_cl = train_test_split(cl, test_size=0.2, random_state=SEED, stratify=cl.lang + "|" + cl.label.astype(str))
-    v2_train = pd.concat([tr_cl, train_pool[train_pool.source != "claude_v2"]], ignore_index=True)
+    v2_train = pd.concat([tr_cl, train_pool[train_pool.source != "llm_v2"]], ignore_index=True)
     v2_train.to_csv(OUT / "v2_train.csv", index=False, encoding="utf-8")
     va_cl.to_csv(OUT / "v2_val.csv", index=False, encoding="utf-8")
 

@@ -60,9 +60,9 @@ Each entry: **what** was chosen, **why**, and **alternatives considered**.
 - **Alternatives:** `Helsinki-NLP/opus-mt-en-ur` (smaller download, noticeably weaker output; kept as the documented fallback); paid translation APIs (not allowed, $0 budget).
 
 ## D-107 · LLM-assisted Roman Urdu and code-mixed text
-- **What:** Claude wrote the Roman Urdu and code-mixed versions in batches of 50, as `group_id|text` drafts. A script attaches the labels from the source data.
+- **What:** An LLM wrote the Roman Urdu and code-mixed versions in batches of 50, as `group_id|text` drafts. A script attaches the labels from the source data.
 - **Why:** No free machine-translation system produces natural Roman Urdu or code-mixed text, and no permissively licensed parallel corpus of Roman Urdu prompt injections exists. Typing labels by hand risks errors, so labels are looked up instead.
-- **Disclosure:** Every row says `author=claude_assisted`. The author reviews a 60-row sample. The data card states that the text is synthetic and that train and test share one "author".
+- **Disclosure:** Every row says `author=llm_assisted`. The author reviews a 60-row sample. The data card states that the text is synthetic and that train and test share one "author".
 
 ## D-108 · Dropping machine translations that lost content
 - **What:** Machine-translated (`ur`) rows that contain a repetition loop, or are less than 0.4× the length of their English source, are dropped. Literal `\n` sequences in deepset prompts are treated as line breaks before translation.
@@ -142,7 +142,7 @@ Each entry: **what** was chosen, **why**, and **alternatives considered**.
 - **Caveats:** The sets are small, several Urdu items are translations of other items, the stress set has no harmless rows (recall only), some category I/J items are questions rather than clear attacks, and the authorship of the sentences (hand-written or AI-assisted) is recorded as supplied by the author.
 
 ## D-207 · InjectionShield-Lite v2: targeted augmentation, with a clean way to measure it
-- **What:** D3v2 uses D3's features, retrained with `data/augment_v2`. That set holds Claude-assisted attacks in the new styles (fake authority, special modes, role-play, extraction, refusal suppression, context reset, tool/document injection) and look-alike harmless prompts in all four languages, plus short jailbreaks and role-play prompts from `jackhhao/jailbreak-classification` (used only for *training*; it stays out of every test set because ProtectAI was trained on it). D4v2 is the multilingual-embedding counterpart. The website now runs D3v2.
+- **What:** D3v2 uses D3's features, retrained with `data/augment_v2`. That set holds LLM-assisted attacks in the new styles (fake authority, special modes, role-play, extraction, refusal suppression, context reset, tool/document injection) and look-alike harmless prompts in all four languages, plus short jailbreaks and role-play prompts from `jackhhao/jailbreak-classification` (used only for *training*; it stays out of every test set because ProtectAI was trained on it). D4v2 is the multilingual-embedding counterpart. The website now runs D3v2.
 - **Why:** The stress test showed D3 learned mainly the "reveal the password" attack style. The fix is more varied training data, not a different model.
 - **Keeping the evaluation honest:**
   1. The stress and independent sets were **never** used for training. Every augmentation candidate was checked against them and against the benchmark test split (RapidFuzz ≥ 75 drops it); none had to be dropped.

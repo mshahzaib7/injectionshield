@@ -46,7 +46,7 @@ with real open-source detectors, and whether a lightweight, transparent fix help
 `Lakera/gandalf_ignore_instructions`, and `OpenAssistant/oasst1` (benign filler). They are filtered to English,
 deduplicated (exact and near-duplicate), and balanced. The data is split 70/15/15 by prompt group **before**
 translation, so no version of a test prompt is seen in training. The Urdu-script versions were produced with NLLB-200
-(600M, local). The Roman Urdu and code-mixed versions are LLM-assisted (written by Claude) and disclosed as such.
+(600M, local). The Roman Urdu and code-mixed versions are LLM-assisted and disclosed as such.
 
 | Split | `en` | `ur` | `roman_ur` | `code_mixed` |
 |---|---:|---:|---:|---:|
@@ -233,7 +233,7 @@ Category columns show Roman Urdu / Urdu recall %. A = Instruction override; B = 
 ### InjectionShield-Lite v2 and look-alike harmless prompts
 
 The stress test showed that D3 mostly learned the attack styles in its training data. D3v2 (and D4v2) were retrained
-with extra data (`data/augment_v2`, built by `14_build_v2.py`): Claude-assisted attacks in the new styles and
+with extra data (`data/augment_v2`, built by `14_build_v2.py`): LLM-assisted attacks in the new styles and
 look-alike harmless prompts in all four languages, plus short jailbreak and role-play prompts from
 `jackhhao/jailbreak-classification` (Apache-2.0) with NLLB Urdu translations. Any candidate similar (RapidFuzz ≥ 75) to
 a benchmark test row, an independent sentence or a stress-set sentence was removed; none needed removing. **Caveat:**

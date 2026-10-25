@@ -1,4 +1,4 @@
-"""Phase 1, step 4: compile Claude-assisted Roman Urdu / code-mixed drafts into the manual CSVs.
+"""Phase 1, step 4: compile LLM-assisted Roman Urdu / code-mixed drafts into the manual CSVs.
 
 Drafts live in data/manual/drafts/{lang}_{split}_{nn}.txt, one "group_id|text" per line.
 Labels are NEVER typed by hand: they are looked up from data/manual/to_write.csv.
@@ -57,7 +57,7 @@ def main() -> int:
                 continue
             seen[(lang, gid)] = path.name
             rows.append({"group_id": gid, "lang": lang, "text": text, "label": int(label_of[gid]),
-                         "author": "claude_assisted", "verified": False})
+                         "author": "llm_assisted", "verified": False})
         pd.DataFrame(rows).to_csv(MANUAL / path.with_suffix(".csv").name, index=False, encoding="utf-8")
 
     for lang in ("roman_ur", "code_mixed"):

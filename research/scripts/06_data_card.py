@@ -32,7 +32,7 @@ def main() -> None:
         f"English source prompts by origin:\n\n| Source | Prompts |\n|---|---:|\n{src}\n\n"
         f"Quality checks: {qc['flagged']} rows flagged, {qc['dropped_hard_failures']} dropped as hard failures "
         f"(see `research/data/processed/qc_flags.csv`).\n\n"
-        + (f"Review (performed by Claude at the author's request, not by a native speaker): {review.get('reviewed', 0)} rows — {review.get('ok', 0)} accepted as-is, "
+        + (f"Review (LLM-assisted, not by a native speaker): {review.get('reviewed', 0)} rows — {review.get('ok', 0)} accepted as-is, "
            f"{review.get('fixed', 0)} corrected, {review.get('dropped', 0)} dropped. "
            f"Verified non-English rows: {rep['verified_rows']}.\n" if review else
            "Review: pending (`research/data/manual/verify_sample.csv`).\n")

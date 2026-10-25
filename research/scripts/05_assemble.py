@@ -41,7 +41,7 @@ def load_rows() -> pd.DataFrame:
     for path in MANUAL_FILES:
         m = pd.read_csv(path)
         m = m.drop(columns=["label"]).join(meta, on="group_id")
-        frames.append(m.assign(origin="claude_assisted"))
+        frames.append(m.assign(origin="llm_assisted"))
 
     cols = ["group_id", "split", "lang", "label", "text", "source", "origin", "verified"]
     df = pd.concat([f[cols] for f in frames], ignore_index=True)
