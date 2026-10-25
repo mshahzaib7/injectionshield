@@ -1,6 +1,4 @@
-research/.venv
-research/.hf_cache
-research/cache
-research/data
-research/results/*.parquet
-**/__pycache__
+# Vercel only builds the static Next.js site; the Python research pipeline, QA scripts and tests are not needed there.
+research/
+qa/
+tests/
