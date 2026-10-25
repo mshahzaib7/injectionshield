@@ -1,4 +1,5 @@
-# Vercel only builds the static Next.js site; the Python research pipeline, QA scripts and tests are not needed there.
-research/
-qa/
-tests/
+# Vercel only builds the static Next.js site. Leading slashes anchor these to the repo root:
+# a bare "research/" would also drop app/research/ and components/research/ (the Research page).
+/research/
+/qa/
+/tests/

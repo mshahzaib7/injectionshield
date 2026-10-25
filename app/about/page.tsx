@@ -66,10 +66,10 @@ export default function AboutPage() {
     <>
       {/* ---------------- Header ---------------- */}
       <header className="border-b-2 border-line">
-        <Container className="grid items-center gap-10 py-14 sm:py-20 xl:grid-cols-[1fr_auto]">
+        <Container className="py-14 sm:py-20">
           <div className="min-w-0">
             <Eyebrow>About the researcher</Eyebrow>
-            <h1 className="mt-5 font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] tracking-tight text-brand sm:whitespace-nowrap">
+            <h1 className="mt-5 font-display text-[clamp(2rem,6vw,4.25rem)] leading-[0.95] tracking-tight text-brand sm:whitespace-nowrap">
               {SITE.author}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 sm:text-xl">
@@ -90,11 +90,6 @@ export default function AboutPage() {
                   Contact
                 </a>
               )}
-            </div>
-          </div>
-          <div aria-hidden="true" className="hidden xl:block">
-            <div className="flex h-44 w-44 items-center justify-center rounded-full border-2 border-line bg-accent font-display text-5xl tracking-tight text-on-accent shadow-[8px_8px_0_0_var(--line)]">
-              MSK
             </div>
           </div>
         </Container>
