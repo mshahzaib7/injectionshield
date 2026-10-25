@@ -44,7 +44,7 @@ export default function AboutPage() {
           <li>
             <span className="font-semibold">GitHub: </span>
             {SITE.githubUrl ? (
-              <a href={SITE.githubUrl} className="underline underline-offset-4 hover:text-accent-ink">{SITE.githubUrl}</a>
+              <a href={SITE.githubUrl} className="break-all underline underline-offset-4 hover:text-accent-ink">{SITE.githubUrl}</a>
             ) : (
               <span className="text-muted">coming soon</span>
             )}

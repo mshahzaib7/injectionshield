@@ -116,7 +116,7 @@ def main() -> int:
         # Theme toggle persists and applies before paint on reload
         page.get_by_role("button", name="Switch to dark theme").click()
         check(page.evaluate("document.documentElement.dataset.theme") == "dark", "theme toggle did not switch")
-        page.reload(wait_until="domcontentloaded")
+        page.reload(wait_until="domcontentloaded")  # theme must already be applied here (no flash)
         report["theme"]["after_reload"] = page.evaluate("document.documentElement.dataset.theme")
         check(report["theme"]["after_reload"] == "dark", "dark theme not persisted across reload")
         if SHOTS:

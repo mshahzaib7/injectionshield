@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
-import Script from "next/script";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SITE } from "@/lib/site";
@@ -38,8 +37,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head>
+        {/* Must block first paint so a saved dark theme never flashes yellow. next/script loads it async,
+            and inline scripts would need dangerouslySetInnerHTML, so a tiny same-origin file is used. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/theme-init.js" />
+      </head>
       <body className={`${inter.variable} ${archivo.variable} ${nastaliq.variable} flex min-h-screen flex-col`}>
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
